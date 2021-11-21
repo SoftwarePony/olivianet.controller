@@ -5,3 +5,4 @@
 /.vs
 /Olivianet.Controller.WebApp/bin/Debug/net6.0
 /Olivianet.Controller.WebApp/obj
+/Olivianet.Controller.WebApp/Controller.db
