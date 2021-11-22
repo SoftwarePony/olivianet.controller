@@ -5,6 +5,7 @@
 /.vs
 /Olivianet.Controller.WebApp/bin/Debug/net6.0
 /Olivianet.Controller.WebApp/obj
+/Olivianet.Controller.WebApp/Controller.db
 /Olivianet.Controller.WebApp.IntegrationTests/bin/Debug/net6.0
 /Olivianet.Controller.WebApp.IntegrationTests/obj
 /Olivianet.Controller.WebApp.Interfaces/bin/Debug/net6.0

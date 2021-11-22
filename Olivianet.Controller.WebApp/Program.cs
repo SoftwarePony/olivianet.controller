@@ -1,19 +1,41 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Olivianet.Controller.WebApp;
 using Olivianet.Controller.WebApp.Data;
+using Olivianet.Controller.WebApp.Helpers;
+using Quartz;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string databaseType = builder.Configuration["AppSettings:DatabaseType"];
 
-
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddControllersWithViews ();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(connectionString);
+    switch (databaseType)
+    {
+        case Constants.SqliteDatabase:
+            options.UseSqlite(connectionString);
+            break;
+        case Constants.PostgresDatabase:
+            options.UseNpgsql(connectionString);
+            break;
+        case Constants.SqlServerDatabase:
+            options.UseSqlServer(connectionString);
+            break;
+    }
 
     options.UseOpenIddict();
 });
+
+builder.Services.AddQuartz(options =>
+{
+    options.UseMicrosoftDependencyInjectionJobFactory();
+    options.UseSimpleTypeLoader();
+    options.UseInMemoryStore();
+});
+builder.Services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
 
 builder.Services.AddOpenIddict()
         // Register the OpenIddict core components.
@@ -36,6 +58,7 @@ builder.Services.AddOpenIddict()
             //options.AddEncryptionCertificate()
 
             // Register the signing and encryption credentials.
+            // TODO: Switch this to some generated certificate
             options.AddDevelopmentEncryptionCertificate()
                   .AddDevelopmentSigningCertificate();
 
@@ -55,7 +78,7 @@ builder.Services.AddOpenIddict()
 
         // Register the worker responsible of seeding the database with the sample clients.
         // Note: in a real world application, this step should be part of a setup script.
-        //builder.Services.AddHostedService<Worker>();
+        builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
