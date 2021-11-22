@@ -4,6 +4,8 @@ using Olivianet.Controller.WebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -30,6 +32,8 @@ builder.Services.AddOpenIddict()
 
             // Enable the client credentials flow.
             options.AllowClientCredentialsFlow();
+
+            //options.AddEncryptionCertificate()
 
             // Register the signing and encryption credentials.
             options.AddDevelopmentEncryptionCertificate()

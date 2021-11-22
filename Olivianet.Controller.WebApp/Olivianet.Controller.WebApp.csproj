@@ -17,4 +17,8 @@
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="3.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Olivianet.Controller.WebApp.Interfaces\Olivianet.Controller.WebApp.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

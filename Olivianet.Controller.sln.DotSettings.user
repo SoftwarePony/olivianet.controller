@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=61cd9d0c_002Db494_002D457e_002D9cbc_002D8aa4f1d3d3dc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="LoadCertificate" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A2ECF300-D8E6-4654-AC2F-C07E6899187A::net6.0::Olivianet.Controller.WebApp.IntegrationTests.UnitTest1.LoadCertificate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::A2ECF300-D8E6-4654-AC2F-C07E6899187A::net6.0::Olivianet.Controller.WebApp.IntegrationTests.UnitTest1.FileStoreTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
